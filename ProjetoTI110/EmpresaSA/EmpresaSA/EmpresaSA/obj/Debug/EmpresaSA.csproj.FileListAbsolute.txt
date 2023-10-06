@@ -1,0 +1,9 @@
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\bin\Debug\EmpresaSA.exe.config
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\bin\Debug\EmpresaSA.exe
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\bin\Debug\EmpresaSA.pdb
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\obj\Debug\EmpresaSA.csproj.AssemblyReference.cache
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\obj\Debug\EmpresaSA.Properties.Resources.resources
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\obj\Debug\EmpresaSA.csproj.GenerateResource.cache
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\obj\Debug\EmpresaSA.csproj.CoreCompileInputs.cache
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\obj\Debug\EmpresaSA.exe
+T:\Cursos Tecnicos\9900224233_TI110_T030424\UC12\ProjetoTI110\EmpresaSA\EmpresaSA\EmpresaSA\obj\Debug\EmpresaSA.pdb
