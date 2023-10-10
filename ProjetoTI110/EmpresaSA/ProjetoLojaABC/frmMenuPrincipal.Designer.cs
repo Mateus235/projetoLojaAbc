@@ -106,6 +106,7 @@ namespace ProjetoLojaABC
             this.btnUsuarios.Text = "&Usuários";
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnProdutos
             // 
