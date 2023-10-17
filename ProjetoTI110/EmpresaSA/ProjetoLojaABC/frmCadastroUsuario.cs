@@ -25,6 +25,14 @@ namespace ProjetoLojaABC
         public frmCadastroUsuario()
         {
             InitializeComponent();
+            desabilitarCampos();
+
+        }
+          public  frmCadastroUsuario(string nome)
+        {
+            InitializeComponent();
+            txtNome.Text = nome;
+            habilitarCampos();
         }
 
         private void frmCadastroUsuario_Load(object sender, EventArgs e)
@@ -61,7 +69,46 @@ namespace ProjetoLojaABC
             }
             Conexao.fecharConexao();
         }
-    
+        public void carragarCodFuncionario(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codFunc from tbFuncionarios where nome = @nome;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+
+            comm.Connection = Conexao.obterConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+
+            txtCodigoFucionario.Text = Convert.ToString(DR.GetString(0));
+
+            Conexao.fecharConexao();
+
+
+
+        }
+
+        //carregar codigo do usuario
+        public void carregaCodigo()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codUsu+1 from tbUsuarios order by codUsu desc;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Connection = Conexao.obterConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
+
+            Conexao.fecharConexao();
+             
+        }
 
         //cadastro usuario
         public int cadastrarUsuario(int codFunc)
@@ -108,20 +155,69 @@ namespace ProjetoLojaABC
             {
                 MessageBox.Show("funcionario não possui usuário.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
-                //carregar o codigo do funcionario
+               
 
 
                 txtNome.Clear();
                 txtSenha.Clear();
                 txtCodigo.Clear();
                 txtNome.Focus();
-
+                //carregar o codigo do funcionario
+                carragarCodFuncionario(lblFuncSemUsuario.SelectedItem.ToString());
             }
 
+         
         }
+
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            habilitarCampos();
             carregarFuncionario();
+            carregaCodigo();
+           
+        }
+       
+        public void limparCampos()
+        {
+            txtCodigo.Clear();
+            txtNome.Clear();
+            txtNome.Focus();
+            txtSenha.Clear();
+            txtRepetirSenha.Clear();
+            txtCodigoFucionario.Clear();
+        }
+
+        public void desabilitarCampos()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = false;
+          }
+        public void desabilitarCamposNovo()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = false;
+            btnNovo.Enabled = true;
+            btnNovo.Focus();
+        }
+        public void habilitarCampos()
+        {
+            txtCodigo.Enabled = false;
+            txtNome.Enabled = true;
+            btnCadastrar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnLimpar.Enabled = true;
+            btnNovo.Enabled = false;
+
+            txtNome.Focus();
         }
 
         private void lblFuncSemUsuario_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,11 +237,15 @@ namespace ProjetoLojaABC
                 if (cadastrarUsuario(Convert.ToInt32(txtCodigoFucionario.Text)) == 1)
                 {
                     MessageBox.Show("Cadastro com sucesso!!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    desabilitarCamposNovo();
+                    limparCampos();
                 }
                 else
                 {
                     MessageBox.Show("Erro ao cadastrar!!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                                   
                 }
+
             }
 
             else
@@ -156,20 +256,54 @@ namespace ProjetoLojaABC
                 txtSenha.Focus();
             }
 
+      
         }
-        //limpar campos 
-        public void limparCampos()
+        public int AlterarUsuario(int codigo)
         {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "update into tbUsuarios set usuario = @usuario , senha = @senha where codUsu;";
+            comm.CommandType = CommandType.Text;
 
-            txtNome.Clear();
-            txtSenha.Clear();
-            txtRepetirSenha.Clear();
-            lblFuncSemUsuario.Items.Clear();
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@usuario",MySqlDbType.VarChar,30).Value = txtNome.Text;
+            comm.Parameters.Add("@senha", MySqlDbType.VarChar, 10).Value = txtSenha.Text;
+            comm.Parameters.Add("@codUsu", MySqlDbType.VarChar, 10).Value = codigo;
 
+            comm.Connection = Conexao.obterConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+
+            return res;
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (AlterarUsuario(Convert.ToInt32(txtCodigo.Text)) == 1)
+            {
+                MessageBox.Show("Usuario alterado com sucesso!!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                desabilitarCamposNovo();
+                limparCampos();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao alterar", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+
+            }
+
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisaUsuario abrir = new frmPesquisaUsuario();
+            abrir.Show();
+            this.Hide();
+
         }
     }
 }

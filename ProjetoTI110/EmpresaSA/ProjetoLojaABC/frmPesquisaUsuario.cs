@@ -9,23 +9,87 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-
 namespace ProjetoLojaABC
 {
-    public partial class frmPesquisarFuncionarios : Form
+    public partial class frmPesquisaUsuario : Form
     {
-        public string nome;
-
-        public frmPesquisarFuncionarios()
+        public frmPesquisaUsuario()
         {
             InitializeComponent();
-            desabilitarCampos();
         }
-        public frmPesquisarFuncionarios(string nome)
+
+        private void PesquisaUsuario_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-            desabilitarCampos();
-            this.nome = nome;
+         
+        }
+        public void pesquisarCodigo(int codigo)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select nome from tbfuncionarios where codFunc = @codFunc;";
+            comm.CommandType = CommandType.Text;
+
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codFunc", MySqlDbType.Int32).Value = codigo;
+
+            comm.Connection = Conexao.obterConexao();
+            //carregando dados para o objeto da tabela
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+            ltbPesquisar.Items.Clear();
+            ltbPesquisar.Items.Add(DR.GetString(0));
+
+            Conexao.fecharConexao();
+        }
+        public void pesquisarNome(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios where nome like '%" + nome + "%';";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            ltbPesquisar.Items.Clear();
+
+            while (DR.Read())
+            {
+                ltbPesquisar.Items.Add(DR.GetString(1));
+            }
+
+
+            Conexao.fecharConexao();
+
+        }
+        public void desabilitarCampos()
+        {
+            btnPesquisar.Enabled = false;
+            btnLimpar.Enabled = false;
+            txtDescricao.Enabled = false;
+            rdbCodigo.Checked = false;
+            rdbNome.Checked = false;
+        }
+        public void HabilitarCampos()
+        {
+            btnPesquisar.Enabled = true;
+            btnLimpar.Enabled = true;
+            txtDescricao.Enabled = true;
+            txtDescricao.Focus();
+
+        }
+        public void limparCampos()
+        {
+            txtDescricao.Clear();
+            rdbCodigo.Checked = false;
+            rdbNome.Checked = false;
+            txtDescricao.Enabled = true;
+            txtDescricao.Focus();
+            ltbPesquisar.Items.Clear();
 
         }
 
@@ -39,100 +103,16 @@ namespace ProjetoLojaABC
             {
                 pesquisarNome((txtDescricao.Text));
             }
-
         }
-        //pesquisar por codigo
-        public void pesquisarCodigo(int codigo)
+
+        private void btnLimpar_Click(object sender, EventArgs e)
         {
-            MySqlCommand comm = new MySqlCommand();
-             comm.CommandText = "select nome from tbfuncionarios where codFunc = @codFunc;";
-            comm.CommandType = CommandType.Text;
-
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add ("@codFunc",MySqlDbType.Int32).Value = codigo ;
-
-            comm.Connection = Conexao.obterConexao();
-            //carregando dados para o objeto da tabela
-            MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-            DR.Read();
-            ltbPesquisar.Items.Clear();
-            ltbPesquisar.Items.Add(DR.GetString(0));
-
-            Conexao.fecharConexao();
+            limparCampos();
         }
-        //pesquisar por nome
-        public void pesquisarNome(string nome)
-        {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios where nome like '%"+nome+"%';";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@nome",MySqlDbType.VarChar).Value = nome;
-
-            comm.Connection = Conexao.obterConexao();
-
-            MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-            ltbPesquisar.Items.Clear();
-        
-            while (DR.Read())
-            {
-                ltbPesquisar.Items.Add(DR.GetString(1));
-            }
-
-
-            Conexao.fecharConexao();
-
-        }
-
-
-        //desabilitar campos
-        public void desabilitarCampos()
-        {
-            btnPesquisar.Enabled = false;
-            btnLimpar.Enabled = false;
-            txtDescricao.Enabled = false;
-            rdbCodigo.Checked = false;
-            rdbNome.Checked = false;
-        }
-        //Habilitar campos
-        public void HabilitarCampos()
-        {
-            btnPesquisar.Enabled = true;
-            btnLimpar.Enabled = true;
-            txtDescricao.Enabled = true;
-            txtDescricao.Focus();
-
-        }
-        //Limpar campos
-        public void limparCampos()
-        {
-            txtDescricao.Clear();
-            rdbCodigo.Checked = false;
-            rdbNome.Checked = false;
-            txtDescricao.Enabled = false;
-            //txtDescricao.Focus();
-            //limpa a lista
-            ltbPesquisar.Items.Clear();
-
-        }
-        private void rdbCodigo_CheckedChanged(object sender, EventArgs e)
-        {
-            HabilitarCampos();
-        }
-
-        private void rdbNome_CheckedChanged(object sender, EventArgs e)
-        {
-            HabilitarCampos();
-        }
-
-      
 
         private void ltbPesquisar_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (ltbPesquisar.SelectedItem == null)
             {
                 MessageBox.Show("Favor selecionar um item.",
@@ -143,12 +123,10 @@ namespace ProjetoLojaABC
             else
             {
                 string nome = ltbPesquisar.SelectedItem.ToString();
-                frmFuncionarios abrir = new frmFuncionarios(nome);
+                frmCadastroUsuario abrir = new frmCadastroUsuario (nome);
                 abrir.Show();
                 this.Hide();
             }
         }
-
-  
     }
 }

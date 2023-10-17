@@ -54,3 +54,4 @@ C:\Users\mateus.smartins\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\Pro
 C:\Users\mateus.smartins\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\mateus.smartins\Documents\Visual Studio 2019\ProjetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.csproj.CopyComplete
 C:\Users\mateus.smartins\Documents\Visual Studio 2019\projetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmCadastroUsuario.resources
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\projetoTI110\EmpresaSA\ProjetoLojaABC\obj\Debug\ProjetoLojaABC.frmPesquisaUsuario.resources
