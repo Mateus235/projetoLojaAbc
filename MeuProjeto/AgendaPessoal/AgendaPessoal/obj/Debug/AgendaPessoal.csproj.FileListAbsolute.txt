@@ -1,0 +1,12 @@
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\bin\Debug\AgendaPessoal.exe.config
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\bin\Debug\AgendaPessoal.exe
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\bin\Debug\AgendaPessoal.pdb
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.csproj.AssemblyReference.cache
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.Properties.Resources.resources
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.csproj.GenerateResource.cache
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.csproj.CoreCompileInputs.cache
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.exe
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.pdb
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.frmsplash.resources
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.frmAgenda.resources
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.FrmLogin.resources
