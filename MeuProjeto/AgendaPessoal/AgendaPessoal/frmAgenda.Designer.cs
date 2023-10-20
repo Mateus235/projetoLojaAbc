@@ -53,7 +53,7 @@ namespace AgendaPessoal
             this.ptbCalendrioImage.Image = ((System.Drawing.Image)(resources.GetObject("ptbCalendrioImage.Image")));
             this.ptbCalendrioImage.Location = new System.Drawing.Point(-1, 0);
             this.ptbCalendrioImage.Name = "ptbCalendrioImage";
-            this.ptbCalendrioImage.Size = new System.Drawing.Size(248, 239);
+            this.ptbCalendrioImage.Size = new System.Drawing.Size(248, 190);
             this.ptbCalendrioImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbCalendrioImage.TabIndex = 0;
             this.ptbCalendrioImage.TabStop = false;
@@ -85,6 +85,7 @@ namespace AgendaPessoal
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnLimpar
             // 
@@ -98,6 +99,7 @@ namespace AgendaPessoal
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
@@ -111,6 +113,7 @@ namespace AgendaPessoal
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -186,7 +189,7 @@ namespace AgendaPessoal
             this.ltbPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ltbPesquisar.FormattingEnabled = true;
             this.ltbPesquisar.ItemHeight = 18;
-            this.ltbPesquisar.Location = new System.Drawing.Point(0, 50);
+            this.ltbPesquisar.Location = new System.Drawing.Point(0, 43);
             this.ltbPesquisar.Name = "ltbPesquisar";
             this.ltbPesquisar.Size = new System.Drawing.Size(328, 292);
             this.ltbPesquisar.TabIndex = 5;
