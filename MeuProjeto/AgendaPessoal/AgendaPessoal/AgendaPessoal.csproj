@@ -111,6 +111,12 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPesquisaDaTarefa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisaDaTarefa.Designer.cs">
+      <DependentUpon>frmPesquisaDaTarefa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmsplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisaDaTarefa.resx">
+      <DependentUpon>frmPesquisaDaTarefa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmsplash.resx">
       <DependentUpon>frmsplash.cs</DependentUpon>

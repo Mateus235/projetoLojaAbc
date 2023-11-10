@@ -42,3 +42,4 @@ C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\A
 C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.csproj.CopyComplete
+C:\Users\mateus.smartins\Documents\Visual Studio 2019\MeuProjeto\AgendaPessoal\AgendaPessoal\obj\Debug\AgendaPessoal.frmPesquisaDaTarefa.resources

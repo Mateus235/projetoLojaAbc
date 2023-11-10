@@ -39,7 +39,6 @@ namespace AgendaPessoal
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.gpbAtividade = new System.Windows.Forms.GroupBox();
             this.ltbPesquisar = new System.Windows.Forms.ListBox();
             this.lblTarefa = new System.Windows.Forms.Label();
@@ -53,7 +52,7 @@ namespace AgendaPessoal
             this.ptbCalendrioImage.Image = ((System.Drawing.Image)(resources.GetObject("ptbCalendrioImage.Image")));
             this.ptbCalendrioImage.Location = new System.Drawing.Point(-1, 0);
             this.ptbCalendrioImage.Name = "ptbCalendrioImage";
-            this.ptbCalendrioImage.Size = new System.Drawing.Size(248, 190);
+            this.ptbCalendrioImage.Size = new System.Drawing.Size(248, 204);
             this.ptbCalendrioImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbCalendrioImage.TabIndex = 0;
             this.ptbCalendrioImage.TabStop = false;
@@ -167,12 +166,6 @@ namespace AgendaPessoal
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(573, 0);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 16;
-            // 
             // gpbAtividade
             // 
             this.gpbAtividade.Controls.Add(this.ltbPesquisar);
@@ -211,11 +204,11 @@ namespace AgendaPessoal
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.gpbAtividade);
-            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.pnlCRUD);
             this.Controls.Add(this.ptbCalendrioImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAgenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agenda";
             ((System.ComponentModel.ISupportInitialize)(this.ptbCalendrioImage)).EndInit();
             this.pnlCRUD.ResumeLayout(false);
@@ -236,7 +229,6 @@ namespace AgendaPessoal
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.GroupBox gpbAtividade;
         private System.Windows.Forms.ListBox ltbPesquisar;
         private System.Windows.Forms.Label lblTarefa;

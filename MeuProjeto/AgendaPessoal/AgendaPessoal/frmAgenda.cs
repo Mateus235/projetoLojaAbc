@@ -40,12 +40,40 @@ namespace AgendaPessoal
         public void pesquisarTarefa()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "";
+            comm.CommandText = "select * from tbTarefas ;";
+            comm.CommandType = CommandType.Text;
+
             
+
+            comm.Connection = conexao.obterConexao();
+
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            while (DR.Read())
+            {
+                ltbPesquisar.Items.Add(DR.GetString(0));
+                ltbPesquisar.Items.Add(DR.GetString(1));
+                ltbPesquisar.Items.Add(DR.GetString(2));
+                ltbPesquisar.Items.Add(DR.GetString(3));
+                ltbPesquisar.Items.Add(DR.GetString(4));
+            }
+           
+               
+            conexao.fecharConexao();
+
+           
         }
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-
+            pesquisarTarefa();
+            
         }
+
+       
+        
+
+       
     }
 }
